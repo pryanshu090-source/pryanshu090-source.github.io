@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Class 9 Notes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f5f5;
+    }
+    header {
+      background: #1e88e5;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      margin-top: 30px;
+      color: #333;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      background: #e3f2fd;
+      padding: 12px;
+      margin: 8px 0;
+      border-radius: 8px;
+      cursor: pointer;
+      border: 1px solid #bbdefb;
+      transition: 0.2s;
+    }
+    li:hover {
+      background: #bbdefb;
+    }
+  </style>
+</head>
+<body>
+  <header>Class 9 Notes</header>
+
+  <div class="container">
+    <h2>Subjects</h2>
+    <ul>
+      <li onclick="openNotes('science')">Science</li>
+      <li onclick="openNotes('maths')">Mathematics</li>
+      <li onclick="openNotes('english')">English</li>
+      <li onclick="openNotes('sst')">Social Science</li>
+      <li onclick="openNotes('hindi')">Hindi</li>
+    </ul>
+
+    <h2 id="subject-title"></h2>
+    <div id="notes-section"></div>
+  </div>
+
+  <script>
+    const notes = {
+      science: [
+        "Matter in Our Surroundings",
+        "Is Matter Around Us Pure?",
+        "Atoms and Molecules",
+        "Structure of the Atom"
+      ],
+      maths: [
+        "Number System",
+        "Polynomials",
+        "Coordinate Geometry",
+        "Linear Equations"
+      ],
+      english: [
+        "The Fun They Had",
+        "The Road Not Taken",
+        "The Little Girl"
+      ],
+      sst: [
+        "The French Revolution",
+        "Nazism and the Rise of Hitler",
+        "Drainage",
+        "Climate"
+      ],
+      hindi: [
+        "दो बैलों की कथा",
+        "ल्हासा की ओर",
+        "अन्तरा भाग – कविता"
+      ]
+    };
+
+    function openNotes(subject) {
+      document.getElementById('subject-title').innerText = subject.toUpperCase() + " Notes";
+      const notesList = notes[subject];
+      let html = '<ul>';
+      notesList.forEach(note => {
+        html += `<li>${note}</li>`;
+      });
+      html += '</ul>';
+      document.getElementById('notes-section').innerHTML = html;
+    }
+  </script>
+</body>
+</html>
